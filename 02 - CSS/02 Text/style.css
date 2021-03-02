@@ -1,0 +1,28 @@
+h2{
+    text-align: center;
+    text-decoration: blue underline wavy;
+    letter-spacing: 10px;
+    font-family: 'Segoe UI';
+}
+
+p{
+    text-align: center;
+    font-weight: 900;
+    line-height: 2;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+
+h1{
+    text-transform: uppercase;
+    font-family: monospace;
+    text-align: center;
+    font-weight: 100;
+    font-size: 40px;
+    letter-spacing: 20px;
+    text-decoration: wavy plum underline;
+}
