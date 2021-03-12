@@ -1,0 +1,42 @@
+div{
+    width: 100px;
+    height: 100px;
+    background-color: #3d404b;
+    border: 2px solid black;
+    margin: 10px;
+    display: inline-block;
+}
+
+h2{
+    text-transform: capitalize;    
+}
+
+#middle{
+background-color: #81b29a;
+}
+
+#static #middle{
+    position: static;
+}
+
+#relative #middle{
+    position: relative;
+    /* top: 100px; */
+    /* Left: 100px; */
+}
+
+#absolute{
+    position: relative;
+}
+
+#absolute #middle{
+    position: absolute;
+    top: 10px;
+    Left: 10px; 
+}
+
+#fixed #middle{
+    position: fixed;
+    top: 100px;
+    Left: 100px; 
+}
