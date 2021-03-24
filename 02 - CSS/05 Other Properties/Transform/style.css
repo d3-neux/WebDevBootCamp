@@ -1,0 +1,70 @@
+h1{
+    background-color: #2a9d8f;
+    border: 5px solid #264653;
+    color: #eae2b7;
+    padding: 0.7em;
+    width: 300px;
+    font-size: 1.8em;
+    text-align: center;
+    margin: 20px auto;
+    font-family: Courier New;
+    font-weight: lighter;    
+  
+}
+
+h1:nth-of-type(2n){
+    background-color: #e9c46a;
+
+}
+h1:nth-of-type(3n){
+    background-color: #f4a261;
+}
+h1:nth-of-type(4n){
+    background-color: #e76f51;
+}
+
+section:first-of-type h1:nth-of-type(1){
+    transform: rotate(45deg);
+    transition: transform 2s;
+    transform-origin: top right;
+}
+
+section:first-of-type h1:nth-of-type(2){
+    transform: scaleY(0.5) scaleX(2);
+    transition: transform 2s;
+    transform-origin: Left;
+}
+
+section:first-of-type h1:nth-of-type(3){
+    transform: translate(50%, 100%);
+    transition: transform 2s;
+    transform-origin: Left;
+}
+
+
+section:first-of-type h1:nth-of-type(4){
+    transform: skew(30deg) translate(50%);
+    transition: transform 2s;
+}
+
+section:nth-of-type(2) h1:nth-of-type(1){
+    transform: skew(30deg) translate(50%);
+    transition: transform 2s;
+}
+
+section:nth-of-type(2) h1:nth-of-type(1):hover{
+    transform: skew(50deg) translate(10%);
+    transition: transform 0.4s;
+}
+
+
+section:nth-of-type(2){
+    transform: rotate(90deg);
+    transition: 0.8s;
+}
+
+section:nth-of-type(2):hover{
+    transform: rotate(-90deg);
+    transition: 0.8s;
+}
+
