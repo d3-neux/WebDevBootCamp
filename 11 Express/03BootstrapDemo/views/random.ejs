@@ -1,0 +1,15 @@
+<%- include('partials/header') %>
+
+    
+
+    <h1>This is your random number: <%= number %></h1>
+
+    <%if (number %2 === 0) { %>
+    <h1>This is an even number</h1>
+    <%} else { %>
+    <h1>This is an odd number</h1>
+    <%} %>
+
+    <h3>That number is: <%= (number % 2 === 0) ? 'EVEN':'ODD'%> 
+
+<%- include('partials/footer') %>

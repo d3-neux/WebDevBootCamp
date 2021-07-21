@@ -1,0 +1,12 @@
+<%- include('partials/header') %>
+
+    <h1>This are my cats: <%= cats %></h1>
+
+    <ul>
+        <%for(let cat of cats) { %>
+            <li><%=cat.toUpperCase()%></li>
+        <% } %>
+    </ul>
+
+
+<%- include('partials/footer') %>
