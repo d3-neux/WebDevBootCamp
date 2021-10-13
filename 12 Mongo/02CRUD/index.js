@@ -4,7 +4,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const Product = require('./models/product');
-const AppError = require('./AppError');
+
 mongoose.connect('mongodb://localhost:27017/farmStand', { useNewUrlParser: true, useUnifiedTopology: true })
 .then(() => {
     console.log("Mongo connection open!!!");
@@ -43,56 +43,37 @@ app.get('/products', async (req, res) => {
 });
 
 app.get('/products/new', (req, res) => {
-    // throw new AppError('not allowed', 401);
     res.render('products/new', { categories });
 })
 
-app.get('/products/:id', async (req, res, next) => {
-    try {
-        const { id } = req.params;
-        const product = await Product.findById(id);
-    
-        if (!product) {
-            throw new AppError('not found', 404));
-        }
-
-        res.render('products/show', { product })
-    } catch (e) {
-        next(e);
-    }
-});
-
-app.post('/products', async (req, res, next) => {
-    try {
-        const newProduct = new Product(req.body);
-        await newProduct.save();
-        console.log(newProduct);
-        res.redirect(`/products/${newProduct.id}`);
-    } catch (e) {
-         next(e);
-    }
-})
-
-app.get('/products/:id/edit', async (req, res, next) => {
+app.get('/products/:id', async (req, res) => {
     const { id } = req.params;
     const product = await Product.findById(id);
+    
+    res.render('products/show', { product })
+});
 
-    if (!product) {
-        return next(new AppError('not found', 404));
-    }
+app.post('/products', async (req, res) => {
+    const newProduct = new Product(req.body);
+    await newProduct.save();
+    console.log(newProduct);
+    res.redirect(`/products/${newProduct.id}`);
+})
 
+app.get('/products/:id/edit', async (req, res) => {
+    const { id } = req.params;
+    const product = await Product.findById(id);
     res.render('products/edit', { product , categories})
 });
 
 
-app.put('/products/:id/', async (req, res, next) => {
-    try {
-        const { id } = req.params;
-        const updatedProduct = await Product.findByIdAndUpdate(id, req.body, { runValidators: true, new: true });
-        res.redirect(`/products/${updatedProduct._id}`);
-    } catch (e) {
-        next(e);
-    }
+app.put('/products/:id/', async (req, res) => {
+    const { id } = req.params;
+    
+    const updatedProduct = await Product.findByIdAndUpdate(id, req.body, { runValidators: true, new: true });
+
+    res.redirect(`/products/${updatedProduct._id}`);
+
 
 });
 
@@ -103,12 +84,6 @@ app.delete('/products/:id/', async (req, res) => {
     res.redirect('/products');
 });
 
-
-app.use((err, req, res, next) => {
-    const { status = 500, message = "Something went wrong!" } = err;
-    console.dir(err);
-    res.status(status).send(message);
-})
 
 
 app.listen(3000, () => {

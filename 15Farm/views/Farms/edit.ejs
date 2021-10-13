@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Farm</title>
+</head>
+<body>
+    <h1>EDit A Farm</h1>
+    <form action="/farms/<%=farm._id%>?_method=PUT" method="POST">
+        div>
+            <label for="name" >farm Name</label>
+            <input type="text" name="name" placeholder="farm name" value="<%=farm.name%>">
+        </div>
+        
+        <div>
+            <label for="city">City Name</label>
+            <input type="text" name="city" placeholder="farm city" value="<%=farm.city%>">
+        </div>
+        
+        <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder="email" value="<%=farm.email%>">
+        </div>
+        <button>Edit </button>
+    </form>
+    
+</body>
+</html>
