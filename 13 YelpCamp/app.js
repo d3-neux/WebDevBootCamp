@@ -1,3 +1,12 @@
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
+
+
+// console.log(process.env.CLOUDINARY_CLOUD_NAME)
+// console.log(process.env.CLOUDINARY_KEY)
+// console.log(process.env.CLOUDINARY_SECRET)
+
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -97,10 +106,10 @@ app.get('/', (req, res) => {
 })
 
 
-app.get('/*', (req, res) => {
-    req.flash('error', 'Page not found');
-    res.redirect('/campgrounds');
-})
+// app.get('/*', (req, res) => {
+//     req.flash('error', 'Page not found');
+//     res.redirect('/campgrounds');
+// })
 
 
 
