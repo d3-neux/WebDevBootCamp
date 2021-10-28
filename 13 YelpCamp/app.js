@@ -97,12 +97,13 @@ app.use((req, res, next) => {
 // })
 
 
+app.use('/', usersRoutes);
 app.use('/campgrounds', campgroundsRoutes);
 app.use('/campgrounds/:id/reviews', reviewsRoutes);
-app.use('/', usersRoutes);
+
 
 app.get('/', (req, res) => {
-    res.redirect('/campgrounds');
+    res.render('home');
 })
 
 
